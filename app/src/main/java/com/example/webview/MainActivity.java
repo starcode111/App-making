@@ -18,13 +18,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
         try {
+            setContentView(R.layout.activity_main);
             setupWebView();
         } catch (Exception e) {
-            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            // Catch anything that prevents the UI from loading
             e.printStackTrace();
+            Toast.makeText(this, "Startup error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            // fallback to a plain TextView so user can still open the app
+            android.widget.TextView tv = new android.widget.TextView(this);
+            tv.setText("Startup failed: " + e.getMessage());
+            tv.setTextSize(18);
+            setContentView(tv);
         }
     }
 
