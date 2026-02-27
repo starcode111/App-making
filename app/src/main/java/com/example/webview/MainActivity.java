@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setDefaultTextEncodingName("utf-8");
 
         // Load the URL
-        webView.loadUrl("https://www.google.com");
+        webView.loadUrl("https://awmkkj.rf.gd");
     }
 
     @Override
